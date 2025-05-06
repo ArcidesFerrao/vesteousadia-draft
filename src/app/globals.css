@@ -71,6 +71,9 @@ input {
   width: 60%;
 }
 
+input[type="submit"]:active {
+  background-color: var(--background);
+}
 input[type="submit"]:hover {
   background-color: var(--foreground);
 }
@@ -799,4 +802,15 @@ table thead tr th {
   background: var(--light-grey);
   padding: 2rem;
   border-radius: 1rem;
+}
+
+.contact-form textarea {
+  min-height: 8rem;
+}
+
+.contact-form textarea,
+.contact-form input {
+  width: 100%;
+
+  padding: 1rem;
 }

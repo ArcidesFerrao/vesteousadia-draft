@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import Providers from "./providers";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
-import PromoSection from "@/components/PromoSection";
+// import PromoSection from "@/components/PromoSection";
 // import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${ubuntu.className} antialiased`}>
         <Providers session={session}>
-          <PromoSection />
+          {/* <PromoSection /> */}
           <NavBar />
           {/* <Breadcrumbs withHome> */}
           <Toaster position="top-center" />
