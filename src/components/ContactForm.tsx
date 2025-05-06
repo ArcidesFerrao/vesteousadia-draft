@@ -3,11 +3,17 @@ import React from "react";
 export default function ContactForm() {
   return (
     <form
-      //   action="/api/sendEmail"
+      action="https://formspree.io/f/xvgaadaz"
       method="POST"
       className="contact-form flex flex-col w-4/6 gap-4"
     >
       <div className="full-name flex flex-col gap-4">
+        <input
+          type="hidden"
+          name="_text"
+          id=""
+          value="https://vesteousadia.com/contacto/obrigado"
+        />
         <div className="flex justify-between ">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" required />
