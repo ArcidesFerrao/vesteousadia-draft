@@ -100,26 +100,65 @@ export default function ProductForm() {
               </span>
             </div>
           </div>
-
-          <div className="category flex justify-between">
-            <h3>Categoria:</h3>
-            <div className="radio-category flex gap-2">
-              {categoriesL.map((category) => (
-                <label key={category.id} className="radio">
-                  <input
-                    type="radio"
-                    name="category"
-                    value={category.id}
-                    onChange={handleCategoryChange}
-                  />
-                  <span className="radio-option">{category.name}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div></div>
-
+          <fieldset className="radio-category flex gap-4 p-8">
+            <legend>Categoria</legend>
+            {categoriesL.map((category) => (
+              <label key={category.id} className="radio">
+                <input
+                  type="radio"
+                  name="category"
+                  value={category.id}
+                  onChange={handleCategoryChange}
+                />
+                <span className="radio-option">{category.name}</span>
+              </label>
+            ))}
+          </fieldset>
+          <fieldset className="size sizeInput flex gap-4 p-8">
+            <legend>Tamanho:</legend>
+            {/* <div className="sizeInput flex gap-4"> */}
+            <label htmlFor="small" className="flex flex-col">
+              <span>S</span>
+              <input
+                type="number"
+                min={0}
+                id="small"
+                name="small"
+                defaultValue={0}
+              />
+            </label>
+            <label htmlFor="medium" className="flex flex-col">
+              <span>M</span>
+              <input
+                type="number"
+                min={0}
+                id="medium"
+                name="medium"
+                defaultValue={0}
+              />
+            </label>
+            <label htmlFor="large" className="flex flex-col">
+              <span>L</span>
+              <input
+                type="number"
+                min={0}
+                id="large"
+                name="large"
+                defaultValue={0}
+              />
+            </label>
+            <label htmlFor="extra-large" className="flex flex-col">
+              <span>XL</span>
+              <input
+                type="number"
+                min={0}
+                id="extralarge"
+                name="extralarge"
+                defaultValue={0}
+              />
+            </label>
+            {/* </div> */}
+          </fieldset>
           <div className="bottom-section flex justify-between">
             <div className="left-section flex flex-col gap-4 justify-between">
               <div className="color flex justify-between">
@@ -134,51 +173,6 @@ export default function ProductForm() {
                 <label htmlFor="stock">Quantidade:</label>
                 <input type="number" id="stock" name="stock" />
               </div> */}
-            </div>
-            <div className="size flex flex-col gap-4">
-              <label>Tamanho:</label>
-              <div className="sizeInput flex gap-4">
-                <label htmlFor="small" className="flex flex-col">
-                  <span>S</span>
-                  <input
-                    type="number"
-                    min={0}
-                    id="small"
-                    name="small"
-                    defaultValue={0}
-                  />
-                </label>
-                <label htmlFor="medium" className="flex flex-col">
-                  <span>M</span>
-                  <input
-                    type="number"
-                    min={0}
-                    id="medium"
-                    name="medium"
-                    defaultValue={0}
-                  />
-                </label>
-                <label htmlFor="large" className="flex flex-col">
-                  <span>L</span>
-                  <input
-                    type="number"
-                    min={0}
-                    id="large"
-                    name="large"
-                    defaultValue={0}
-                  />
-                </label>
-                <label htmlFor="extra-large" className="flex flex-col">
-                  <span>XL</span>
-                  <input
-                    type="number"
-                    min={0}
-                    id="extralarge"
-                    name="extralarge"
-                    defaultValue={0}
-                  />
-                </label>
-              </div>
             </div>
           </div>
 

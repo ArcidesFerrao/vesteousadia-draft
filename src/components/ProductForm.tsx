@@ -121,9 +121,24 @@ export default function ProductForm({
             </span>
           </div>
         </div>
-
+        <fieldset>
+          <legend>Categoria</legend>
+          <div className="radio-category flex gap-2">
+            {categoriesL.map((category) => (
+              <label key={category.id} className="radio">
+                <input
+                  type="radio"
+                  name="category"
+                  value={category.id}
+                  onChange={handleCategoryChange}
+                  defaultChecked={product?.categoryId === category.id}
+                />
+                <span className="radio-option">{category.name}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
         <div className="category flex justify-between">
-          <label>Categoria:</label>
           <div className="radio-category flex gap-2">
             {categoriesL.map((category) => (
               <label key={category.id} className="radio">
@@ -166,7 +181,43 @@ export default function ProductForm({
             </div>
           )}
         </div>
+        <div className="size flex flex-col gap-4">
+          <label>Tamanho:</label>
+          <div className="sizeInput flex gap-4">
+            {productSize &&
+              ["s", "m", "l", "xl"].map((size) => {
+                const sizeData = productSize.find((ps) => ps.size === size) || {
+                  size,
+                  stock: 0,
+                };
 
+                const sizeNameMap: Record<string, string> = {
+                  s: "small",
+                  m: "medium",
+                  l: "large",
+                  xl: "extralarge",
+                };
+
+                // console.log("size data", size, sizeData?.stock);
+                return (
+                  <label
+                    key={size}
+                    htmlFor={size.toLocaleLowerCase()}
+                    className="flex flex-col"
+                  >
+                    <span>{size.toLocaleUpperCase()}</span>
+                    <input
+                      type="number"
+                      min={0}
+                      id={size.toLocaleLowerCase()}
+                      name={sizeNameMap[size]}
+                      defaultValue={Number(sizeData.stock)}
+                    />
+                  </label>
+                );
+              })}
+          </div>
+        </div>
         <div className="bottom-section flex justify-between gap-8">
           <div className="left-section flex flex-col gap-4 justify-between">
             <div className="color flex justify-between">
@@ -186,42 +237,6 @@ export default function ProductForm({
                 name="brand"
                 defaultValue={product?.brand}
               />
-            </div>
-          </div>
-          <div className="size flex flex-col gap-4">
-            <label>Tamanho:</label>
-            <div className="sizeInput flex gap-4">
-              {productSize &&
-                ["s", "m", "l", "xl"].map((size) => {
-                  const sizeData = productSize.find(
-                    (ps) => ps.size === size
-                  ) || { size, stock: 0 };
-
-                  const sizeNameMap: Record<string, string> = {
-                    s: "small",
-                    m: "medium",
-                    l: "large",
-                    xl: "extralarge",
-                  };
-
-                  // console.log("size data", size, sizeData?.stock);
-                  return (
-                    <label
-                      key={size}
-                      htmlFor={size.toLocaleLowerCase()}
-                      className="flex flex-col"
-                    >
-                      <span>{size.toLocaleUpperCase()}</span>
-                      <input
-                        type="number"
-                        min={0}
-                        id={size.toLocaleLowerCase()}
-                        name={sizeNameMap[size]}
-                        defaultValue={Number(sizeData.stock)}
-                      />
-                    </label>
-                  );
-                })}
             </div>
           </div>
         </div>

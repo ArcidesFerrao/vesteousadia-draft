@@ -51,7 +51,7 @@ export const AccountDropDown = () => {
             signOutDrop ? "show" : "hide"
           }`}
         >
-          <NavLink href={`/${session?.user.id}`}>Profile</NavLink>
+          <NavLink href={`/user`}>Profile</NavLink>
           <button
             onClick={async () => {
               try {

@@ -96,6 +96,15 @@ input {
   font-size: small;
 }
 
+fieldset {
+  border: 2px solid var(--foreground);
+}
+
+legend {
+  padding: 0 0.6rem;
+  border: 1px solid var(--foreground);
+}
+
 footer a:hover,
 nav a:hover {
   color: var(--input-color);
@@ -423,7 +432,7 @@ table thead tr th {
 
   .radio .radio-option {
     cursor: pointer;
-    padding: 0.4rem 1rem;
+    padding: 0.6rem 1rem;
     font-size: small;
     font-weight: 300;
     border: 1px solid var(--foreground);
@@ -440,9 +449,6 @@ table thead tr th {
     color: var(--foreground);
     background-color: var(--light-grey);
     border: 1px solid var(--input-color);
-  }
-  .radio .radio-option {
-    padding: 0.4rem 0.5rem;
   }
 }
 .form-product input[type="number"] {
@@ -615,7 +621,7 @@ table thead tr th {
 .table-sizes p {
   border: 1px solid var(--dark-grey);
   border-radius: 0.2rem;
-  min-width: fit-content;
+  min-width: 2.8rem;
   padding: 0.4rem 0.4rem;
 }
 
@@ -813,4 +819,11 @@ table thead tr th {
   width: 100%;
 
   padding: 1rem;
+}
+
+.user-order {
+  padding: 1rem 2rem;
+  border: 1px solid var(--light-grey);
+
+  border-radius: 8px;
 }
