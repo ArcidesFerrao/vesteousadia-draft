@@ -9,7 +9,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 export const AccountDropDown = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [signOutDrop, setSignOutDrop] = useState(false);
+  // const [signOutDrop, setSignOutDrop] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
   useEffect(() => {
@@ -19,6 +19,7 @@ export const AccountDropDown = () => {
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setIsDropdownOpen(false);
+        // setSignOutDrop(false);
       }
     };
 
@@ -31,7 +32,7 @@ export const AccountDropDown = () => {
   return (
     <div className="nav-account" ref={dropdownRef}>
       {session?.user ? (
-        <button onClick={() => setSignOutDrop((prev) => !prev)}>
+        <button onClick={() => setIsDropdownOpen((prev) => !prev)}>
           {session.user.name?.split(" ", 1)}
         </button>
       ) : (
@@ -45,10 +46,10 @@ export const AccountDropDown = () => {
         </button>
       )}
 
-      {signOutDrop && (
+      {isDropdownOpen && (
         <div
           className={`nav-dropdown-menu absolute top-full right-0 mt-2 rounded shadow-lg flex flex-col w-fit ${
-            signOutDrop ? "show" : "hide"
+            isDropdownOpen ? "show" : "hide"
           }`}
         >
           <NavLink href={`/user`}>Profile</NavLink>
@@ -56,6 +57,7 @@ export const AccountDropDown = () => {
             onClick={async () => {
               try {
                 await signOut();
+                setIsDropdownOpen(false);
               } catch (error) {
                 console.log("Sign out failed: ", error);
               }
@@ -66,7 +68,7 @@ export const AccountDropDown = () => {
         </div>
       )}
 
-      {isDropdownOpen && (
+      {!session?.user && isDropdownOpen && (
         <div
           className={`nav-dropdown-menu absolute top-full right-0 mt-2 rounded shadow-lg flex flex-col w-fit ${
             isDropdownOpen ? "show" : "hide"
@@ -77,6 +79,7 @@ export const AccountDropDown = () => {
               try {
                 const result = await signIn("google", { redirect: false });
                 console.log("Sign in result", result);
+                setIsDropdownOpen(false);
                 // if (result?.ok) {
                 //   toast.success("Login successfull", {
                 //     position: "top-right",

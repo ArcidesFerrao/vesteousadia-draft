@@ -21,7 +21,11 @@ export default async function UserPage() {
   const session = await getServerSession(authOptions);
   let orders: Order[] = [];
   if (!session) {
-    return <div>You are not logged in.</div>;
+    return (
+      <main className="items-center justify-center">
+        You are not logged in.
+      </main>
+    );
   } else if (session.user.email) {
     const user = await db.user.findUnique({
       where: { email: session.user.email },
