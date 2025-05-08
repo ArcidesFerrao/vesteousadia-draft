@@ -33,7 +33,7 @@ export const AccountDropDown = () => {
     <div className="nav-account" ref={dropdownRef}>
       {session?.user ? (
         <button onClick={() => setIsDropdownOpen((prev) => !prev)}>
-          {session.user.name?.split(" ", 1)}
+          Bem Vindo, {session.user.name?.split(" ", 1)}!
         </button>
       ) : (
         <button onClick={() => setIsDropdownOpen((prev) => !prev)}>

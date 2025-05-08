@@ -121,7 +121,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0.6rem 0;
+  padding: 0.8rem 0;
   background-color: var(--foreground);
   color: var(--background);
 }
@@ -211,7 +211,7 @@ table thead tr th {
   position: absolute;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  top: 45px;
+  top: 1.55rem;
 }
 
 .hidden {
@@ -829,4 +829,21 @@ table thead tr th {
   border: 1px solid var(--light-grey);
 
   border-radius: 8px;
+}
+
+.terms-page {
+  p,
+  li {
+    font-size: medium;
+  }
+  ul {
+    padding: 1rem;
+    list-style: disc inside;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0 1rem;
+  }
 }

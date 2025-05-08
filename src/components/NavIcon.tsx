@@ -1,10 +1,10 @@
 // import logo from "./src/app/assets/icon.png";
 import Image from "next/image";
 
-const iconPath = "/assets/icon.PNG";
+const iconPath = "/favicon.png";
 
 export default function NavIcon() {
-  return <Image src={iconPath} width={120} height={120} alt="Ousadia" />;
+  return <Image src={iconPath} width={64} height={64} alt="Ousadia" />;
 }
 
 export function FooterIcon() {

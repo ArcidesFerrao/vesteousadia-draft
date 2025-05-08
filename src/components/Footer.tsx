@@ -51,9 +51,13 @@ export default function Footer() {
                   </NavLink>
                 </div>
                 <div className="page-links flex flex-col gap-2">
-                  <NavLink href="/produtos">Produtos</NavLink>
+                  {/* <NavLink href="/produtos">Produtos</NavLink> */}
                   <NavLink href="/contacto">Contacto</NavLink>
-                  <NavLink href="/sobre">Sobre Ousadia</NavLink>
+                  {/* <NavLink href="/sobre">Sobre Ousadia</NavLink> */}
+                  <NavLink href="/termos">Termos&Condições</NavLink>
+                  <NavLink href="/privacidade">
+                    Políticas de Privacidade
+                  </NavLink>
                 </div>
               </div>
             </div>
