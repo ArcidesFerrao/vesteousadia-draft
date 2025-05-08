@@ -660,6 +660,9 @@ table thead tr th {
   }
 }
 @media (max-width: 700px) {
+  .footer-media {
+    flex-direction: column;
+  }
   .products-list {
     grid-template-columns: repeat(2, 1fr) !important;
   }
