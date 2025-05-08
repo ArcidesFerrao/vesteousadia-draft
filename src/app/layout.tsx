@@ -11,8 +11,15 @@ import { authOptions } from "@/lib/auth";
 // import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Ousadia",
+  title: "Veste Ousadia",
   description: "Marca moçambicana de vestuário",
+  icons: {
+    icon: [
+      { url: "/favicon.png" },
+      // { url: "/favicon32x32.png", sizes: "32x32", type: "image/png" },
+      // { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
+    ],
+  },
 };
 
 const ubuntu = Ubuntu({
