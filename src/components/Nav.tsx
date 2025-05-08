@@ -61,8 +61,8 @@ export const NavBar = () => {
             </div>
           )}
         </div>
-        <div className="wide-screen-nav nav-links flex items-center justify-center gap-4">
-          <div className="produtos flex justify-center items-center">
+        <div className="wide-screen-nav nav-links flex items-center gap-4">
+          <div className="produtos">
             <NavLink href="/produtos">Produtos</NavLink>
           </div>
           <CategoryDrop />
